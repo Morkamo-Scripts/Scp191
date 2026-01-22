@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using AdvancedInterfaces.Components;
 using AdvancedInterfaces.Events.EventArgs.Player;
 using Exiled.API.Enums;
 using Exiled.API.Extensions;
 using Exiled.API.Features;
-using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
 using RueI.API;
@@ -24,11 +22,11 @@ public class Scp191Handler : Scp191Component
 
     private const float HealBlockSeconds = 10f;
     private float _nextHealTime;
-    private bool _isScp053Died = false;
+    private bool _isScp053Died;
+    private bool _isAshLost;
 
     private Coroutine _ashCoroutine;
     private Coroutine _spCoroutine;
-    private bool _isAshLost = false;
 
     protected override void SubscribeEvents()
     {
