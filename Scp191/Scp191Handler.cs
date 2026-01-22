@@ -28,7 +28,7 @@ public class Scp191Handler : Scp191Component
 
     private Coroutine _ashCoroutine;
     private Coroutine _spCoroutine;
-    private bool _isAshLost { get; set; } = false;
+    private bool _isAshLost = false;
 
     protected override void SubscribeEvents()
     {
