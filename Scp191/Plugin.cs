@@ -23,15 +23,19 @@ namespace Scp191
         {
             Instance = this;
             Exiled.Events.Handlers.Player.Verified += OnVerified;
-            Config.Scp191.Register();
+            Config.Scp191ClassD.Register();
+            Config.Scp191Chaos.Register();
+            Config.Scp191Ntf.Register();
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
-            Instance = null;
             Exiled.Events.Handlers.Player.Verified -= OnVerified;
-            Config.Scp191.Unregister();
+            Config.Scp191ClassD.Unregister();
+            Config.Scp191Chaos.Unregister();
+            Config.Scp191Ntf.Unregister();
+            Instance = null;
             base.OnDisabled();
         }
 

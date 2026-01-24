@@ -37,6 +37,9 @@
         <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL" Private="False">
             <HintPath>..\packages\Lib.Harmony.2.2.2\lib\net48\0Harmony.dll</HintPath>
         </Reference>
+        <Reference Include="AdvancedCassie" Private="False">
+          <HintPath>..\..\Libs\AdvancedCassie.dll</HintPath>
+        </Reference>
         <Reference Include="AdvancedInterfaces" Private="False">
           <HintPath>..\..\Libs\AdvancedInterfaces.dll</HintPath>
         </Reference>
@@ -116,6 +119,7 @@
         <Compile Include="Components\Features\Components\Interfaces\IPropertyModule.cs" />
         <Compile Include="Components\Features\Components\PlayerProperties.cs" />
         <Compile Include="Components\Features\CoroutineRunner.cs" />
+        <Compile Include="Components\Features\HighlightManager.cs" />
         <Compile Include="Components\Features\Scp191Properties.cs" />
         <Compile Include="Components\Scp191Component.cs" />
         <Compile Include="Config.cs" />
@@ -125,7 +129,9 @@
         <Compile Include="Events\PlayerEvents.cs" />
         <Compile Include="Plugin.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="Scp191Handler.cs" />
+        <Compile Include="Variants\Scp191Chaos.cs" />
+        <Compile Include="Variants\Scp191ClassD.cs" />
+        <Compile Include="Variants\Scp191Ntf.cs" />
     </ItemGroup>
     <!--<ItemGroup>
       <None Include="App.config" />
