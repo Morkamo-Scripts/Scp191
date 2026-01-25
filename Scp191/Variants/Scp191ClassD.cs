@@ -27,7 +27,7 @@ public class Scp191ClassD : Scp191Component
     public override uint Id { get; set; } = 7;
     public override string Name { get; set; } = "SCP-191-CLASSD";
 
-    public override string Description { get; set; } = "<b><color=#ff334b>Ты теперь <b>SCP-191</color></b>\n" +
+    public override string Description { get; set; } = "<b><color=#ff334b>Ты теперь <b>SCP-191 (Ребенок-киборг)</color></b>\n" +
                                                        "<color=#ff001e>Вы не сможете спрятаться от SCP-939!</color>\n" +
                                                        "<color=#ff8c00>~ <i>Ты мал но не устаешь, используй свои умения чтобы сбежать!</i></color>\n" +
                                                        "<color=#ff0055>Пока есть <b>Адаптивная Защита</b> ты не будешь уставать и\n выживешь при падении с любой высоты.\n" +
@@ -107,6 +107,12 @@ public class Scp191ClassD : Scp191Component
             {
                 CoroutineRunner.Stop(_spCoroutine);
                 _spCoroutine = null;
+            }
+            
+            if (_hCoroutine != null)
+            {
+                CoroutineRunner.Stop(_hCoroutine);
+                _hCoroutine = null;
             }
 
             _ashCoroutine = CoroutineRunner.Run(AshProcessor(ev.Player));

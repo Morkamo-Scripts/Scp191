@@ -15,7 +15,7 @@ namespace Scp191
         public override string Prefix => Name;
         public override Version Version => new(1, 0, 0);
         public override Version RequiredExiledVersion { get; } = new(9, 12, 6);
-
+        
         public static Plugin Instance;
         public static Harmony Harmony;
         

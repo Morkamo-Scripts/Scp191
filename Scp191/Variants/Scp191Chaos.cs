@@ -115,6 +115,12 @@ public class Scp191Chaos : Scp191Component
                 CoroutineRunner.Stop(_spCoroutine);
                 _spCoroutine = null;
             }
+            
+            if (_hCoroutine != null)
+            {
+                CoroutineRunner.Stop(_hCoroutine);
+                _hCoroutine = null;
+            }
 
             _ashCoroutine = CoroutineRunner.Run(AshProcessor(ev.Player));
             _spCoroutine = CoroutineRunner.Run(StaminaProcessor(ev.Player));
