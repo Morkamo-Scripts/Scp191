@@ -226,6 +226,8 @@ public class Scp191ClassD : Scp191Component
         if (!Check(ev.Player))
             return;
         
+        ev.Player.IsUsingStamina = true;
+        
         EventManager.PlayerEvents.InvokeCustomRoleDied(ev.Player, CustomRoleType.Scp191);
     }
     

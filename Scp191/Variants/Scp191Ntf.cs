@@ -234,6 +234,8 @@ public class Scp191Ntf : Scp191Component
         if (!Check(ev.Player))
             return;
         
+        ev.Player.IsUsingStamina = true;
+        
         EventManager.PlayerEvents.InvokeCustomRoleDied(ev.Player, CustomRoleType.Scp191);
     }
     
