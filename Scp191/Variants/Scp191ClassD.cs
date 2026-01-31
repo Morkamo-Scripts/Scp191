@@ -57,6 +57,7 @@ public class Scp191ClassD : Scp191Component
         events.Player.Died += OnDied;
         events.Player.Escaping += OnEscaping;
         events.Player.Escaped += OnEscaped;
+        events.Player.ChangingRole += OnChangingRole;
         base.SubscribeEvents();
     }
 
@@ -72,6 +73,7 @@ public class Scp191ClassD : Scp191Component
         events.Player.Died -= OnDied;
         events.Player.Escaping -= OnEscaping;
         events.Player.Escaped -= OnEscaped;
+        events.Player.ChangingRole -= OnChangingRole;
         base.UnsubscribeEvents();
     }
     
@@ -81,6 +83,12 @@ public class Scp191ClassD : Scp191Component
         player.AdvancedCassie().PlayerProperties.IsCustomScp = false;
         Object.Destroy(player.Scp191().PlayerProperties.HighlightPrefab);
         player.Scp191().PlayerProperties.HighlightPrefab = null;
+    }
+    
+    private void OnChangingRole(ChangingRoleEventArgs ev)
+    {
+        if (Check(ev.Player))
+            ev.Player.Scp191().ResetProperties();
     }
 
     private void OnSpawned(SpawnedEventArgs ev)

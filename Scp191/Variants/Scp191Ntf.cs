@@ -54,6 +54,7 @@ public class Scp191Ntf : Scp191Component
         events.Player.Died += OnDied;
         events.Player.Escaping += OnEscaping;
         events.Player.Escaped += OnEscaped;
+        events.Player.ChangingRole += OnChangingRole;
         base.SubscribeEvents();
     }
 
@@ -69,6 +70,7 @@ public class Scp191Ntf : Scp191Component
         events.Player.Died -= OnDied;
         events.Player.Escaping -= OnEscaping;
         events.Player.Escaped -= OnEscaped;
+        events.Player.ChangingRole -= OnChangingRole;
         base.UnsubscribeEvents();
     }
     
@@ -91,13 +93,19 @@ public class Scp191Ntf : Scp191Component
         player.Scp191().PlayerProperties.HighlightPrefab = null;
     }
 
+    private void OnChangingRole(ChangingRoleEventArgs ev)
+    {
+        if (Check(ev.Player))
+            ev.Player.Scp191().ResetProperties();
+    }
+
     private void OnSpawned(SpawnedEventArgs ev)
     {
         Timing.CallDelayed(0.1f, () =>
         {
             if (ev.Player.IsNPC || !Check(ev.Player))
                 return;
-
+            
             var props = ev.Player.Scp191().PlayerProperties;
             if (props.HighlightPrefab != null)
             {
