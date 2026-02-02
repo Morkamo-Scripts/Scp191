@@ -20,5 +20,6 @@ public sealed class Scp191Properties() : MonoBehaviour
         Destroy(PlayerProperties.HighlightPrefab);
         PlayerProperties.HighlightPrefab = null;
         PlayerProperties.IsInEscapingProcess = false;
+        Player.IsUsingStamina = true;
     }
 }

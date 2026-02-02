@@ -1,11 +1,14 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using AdvancedCassie.Components.Extensions;
 using AdvancedInterfaces.Components;
 using AdvancedInterfaces.Events;
 using AdvancedInterfaces.Events.EventArgs.Player;
+using CustomPlayerEffects;
 using Exiled.API.Enums;
 using Exiled.API.Extensions;
 using Exiled.API.Features;
+using Exiled.API.Features.Toys;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp939;
 using LabApi.Events.Arguments.PlayerEvents;
@@ -284,7 +287,7 @@ public class Scp191ClassD : Scp191Component
         };
         properties.HighlightPrefab.transform.SetParent(player.Transform);
         
-        HighlightManager.ProceduralParticles(properties.HighlightPrefab, 
+        Components.Features.Utils.ProceduralParticles(player, properties.HighlightPrefab, 
             new Color32(255, 125, 0, 255), 0, 0.05f,
             new(1.2f, 1.2f, 1.2f), 0.125f, 12, 8, 60, 1f);
     }
@@ -357,7 +360,7 @@ public class Scp191ClassD : Scp191Component
             Timing.CallDelayed(20.1f, () => RueDisplay.Get(spec).Update());
         }
             
-        while (player.IsConnected && player.IsAlive)
+        while (player.IsConnected && player.IsAlive && Check(player))
         {
             foreach (var spec in player.CurrentSpectatingPlayers)
             {

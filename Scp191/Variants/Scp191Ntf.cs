@@ -276,7 +276,7 @@ public class Scp191Ntf : Scp191Component
         };
         properties.HighlightPrefab.transform.SetParent(player.Transform);
         
-        HighlightManager.ProceduralParticles(properties.HighlightPrefab, 
+        Components.Features.Utils.ProceduralParticles(player, properties.HighlightPrefab, 
             new Color32(255, 125, 0, 255), 0, 0.05f,
             new(1.2f, 1.2f, 1.2f), 0.125f, 12, 8, 60, 1f);
     }
@@ -349,7 +349,7 @@ public class Scp191Ntf : Scp191Component
             Timing.CallDelayed(7.1f, () => RueDisplay.Get(spec).Update());
         }
             
-        while (player.IsConnected && player.IsAlive)
+        while (player.IsConnected && player.IsAlive && Check(player))
         {
             foreach (var spec in player.CurrentSpectatingPlayers)
             {

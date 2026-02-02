@@ -121,6 +121,7 @@
         <Compile Include="Components\Features\CoroutineRunner.cs" />
         <Compile Include="Components\Features\HighlightManager.cs" />
         <Compile Include="Components\Features\Scp191Properties.cs" />
+        <Compile Include="Components\Features\Utils.cs" />
         <Compile Include="Components\Scp191Component.cs" />
         <Compile Include="Config.cs" />
         <Compile Include="Events\Components\ICancelableEvent.cs" />
